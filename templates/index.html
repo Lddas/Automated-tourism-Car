@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation Example</title>
+    <script>
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(locationHandler, errorHandler);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function locationHandler(position) {
+            var lat = position.coords.latitude;
+            var lng = position.coords.longitude;
+            console.log("Latitude: " + lat + ", Longitude: " + lng);
+            sendLocationToServer(lat, lng);
+            checkNearbyPOIs(lat, lng);
+        }
+
+        function errorHandler(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        function checkNearbyPOIs(lat, lng) {
+            // Replace this with your actual logic to find nearby points of interest
+            console.log("Checking nearby POIs for coordinates: Latitude: " + lat + ", Longitude: " + lng);
+        }
+
+        function sendLocationToServer(lat, lng) {
+            var xhr = new XMLHttpRequest();
+            var url = "/save_location";
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log("Location sent to server successfully");
+                }
+            };
+            var data = JSON.stringify({"latitude": lat, "longitude": lng});
+            xhr.send(data);
+        }
+    </script>
+</head>
+<body onload="getLocation()">
+    <h1>Geolocation Example</h1>
+    <p>Check the console for the geolocation output.</p>
+</body>
+</html>

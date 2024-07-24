@@ -5,7 +5,7 @@ conn = sqlite3.connect('poi.db')
 cursor = conn.cursor()
 
 # Création de la table des POI
-cursor.execute('''
+cursor.execute(''' 
     CREATE TABLE IF NOT EXISTS poi (
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
@@ -18,7 +18,8 @@ cursor.execute('''
 poi_data = [
     ("La Terrace", 12.850541, 77.665506),  # Exemple : Tour Eiffel
     ("ECC building", 12.850959, 77.665806),  # Exemple : Statue de la Liberté
-    ("Washing machine building", 12.849908, 77.666289)  # Exemple : Big Ben
+    ("Washing machine building", 12.849908, 77.666289),
+    ("BP offices",12.851589203351041, 77.66669934487948)
 ]
 
 # Insertion des POI dans la table
