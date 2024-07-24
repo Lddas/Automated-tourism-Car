@@ -19,7 +19,7 @@ poi_data = [
     ("La Terrace", 12.850541, 77.665506),  # Exemple : Tour Eiffel
     ("ECC building", 12.850959, 77.665806),  # Exemple : Statue de la Liberté
     ("Washing machine building", 12.849908, 77.666289),
-    ("BP offices",12.851589203351041, 77.66669934487948)
+    ("BP offices",12.9794048, 77.594624)
 ]
 
 # Insertion des POI dans la table

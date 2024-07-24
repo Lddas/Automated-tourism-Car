@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+from check_POI import check_nearby_pois
 
 app = Flask(__name__)
 
@@ -12,6 +13,8 @@ def save_location():
     lat = data['latitude']
     lng = data['longitude']
     print(f"Received location: Latitude = {lat}, Longitude = {lng}")
+    current_coords = (lat, lng)
+    check_nearby_pois(current_coords)
     # You can now use the coordinates in your Python code
     # For example, save to a database, call another function, etc.
     return jsonify({"status": "success"})

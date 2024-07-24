@@ -1,6 +1,5 @@
 import sqlite3
 from geopy.distance import geodesic
-from localisation import get_geolocation, get_public_ip
 
 def get_pois():
     conn = sqlite3.connect('poi.db')
@@ -29,19 +28,3 @@ def check_nearby_pois(current_coords):
 def trigger_presentation(poi_name):
     # Cette fonction enverra une requête au LLM avec le nom du POI
     print(f"Présentation du {poi_name}")
-
-if __name__ == "__main__":
-    public_ip = get_public_ip()
-    if public_ip:
-        location_info = get_geolocation(public_ip)
-        if 'Latitude' in location_info and 'Longitude' in location_info:
-            current_coords = (location_info['Latitude'], location_info['Longitude'])
-            print(current_coords)
-            check_nearby_pois(current_coords)
-        else:
-            print("Could not retrieve coordinates from geolocation info")
-    else:
-        print("Could not retrieve public IP address")
-
-    
-    check_nearby_pois(current_coords)

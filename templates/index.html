@@ -56,9 +56,15 @@
             var data = JSON.stringify({"latitude": lat, "longitude": lng});
             xhr.send(data);
         }
+
+        // Get location initially and then every 10 seconds
+        window.onload = function() {
+            getLocation();
+            setInterval(getLocation, 10000); // 10000 milliseconds = 10 seconds
+        };
     </script>
 </head>
-<body onload="getLocation()">
+<body>
     <h1>Geolocation Example</h1>
     <p>Check the console for the geolocation output.</p>
 </body>
