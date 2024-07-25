@@ -1,5 +1,6 @@
-# Tourism-Car 
+# DeloreAI Tourism-Car 
 
+Welcome to the DeloreAI repository ! The name of the project is a reference to the classic movie "Back to the future", in which they are driving the futuristic Delorean car. Here, you will find a first implementation of the project !
 Let's implement an autonomous tourism tour car ! This code is implemented as an @app. It detects dynamically (checks every 5sec) the car position 
 thanks to the html file.
 Then, it compares the localisation to the implemented Points of Interest (POI). Here, we implememented some of the campus musts, like the Washing Machine building.
