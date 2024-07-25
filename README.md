@@ -6,4 +6,6 @@ thanks to the html file.
 Then, it compares the localisation to the implemented Points of Interest (POI). Here, we implememented some of the campus musts, like the Washing Machine building.
 All the POIs are implemented in a SQLite database. 
 
+If you want to try it, run app.py, and copy the link "http://127.0.0.1:5000" on your browser, for it to find your localisation.
+
 
